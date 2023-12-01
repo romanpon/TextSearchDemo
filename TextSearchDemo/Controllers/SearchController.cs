@@ -2,6 +2,7 @@
 
 namespace TextSearchDemo.Controllers
 {
+    [Route("search")]
     public class SearchController : ControllerBase
     {
         private readonly ILogger<SearchController> _logger;
