@@ -1,21 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TextSearchDemo.Interfaces;
 
 namespace TextSearchDemo.Controllers
 {
     [Route("search")]
     public class SearchController : ControllerBase
     {
-        private readonly ILogger<SearchController> _logger;
+        private readonly ISearchService searchService;
 
-        public SearchController(ILogger<SearchController> logger)
+        public SearchController(ISearchService searchService)
         {
-            _logger = logger;
+            this.searchService = searchService;
         }
 
         [HttpGet]
         public async Task<IActionResult> Search(string text, CancellationToken cancellationToken)
         {
-            return null;
+            var result = await searchService.Search(text, cancellationToken);
+            return Ok(result);
         }
     }
 }
