@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Options;
 using System.Reflection;
 using System.Text.Json;
+using TextSearchDemo.Configuration;
 using TextSearchDemo.Interfaces;
 using TextSearchDemo.Models;
 
@@ -10,10 +12,12 @@ namespace TextSearchDemo.Services
     {
         private readonly IMemoryCache memoryCache;
         private static readonly SemaphoreSlim semaphore = new(1, 1);
+        public readonly Settings settings;
 
-        public SearchService(IMemoryCache memoryCache)
+        public SearchService(IMemoryCache memoryCache, IOptions<Settings> settings)
         {
             this.memoryCache = memoryCache;
+            this.settings = settings.Value;
         }
 
         public async Task<IEnumerable<Child>> Search(string searchText, CancellationToken cancellationToken)
@@ -64,7 +68,7 @@ namespace TextSearchDemo.Services
 
         private async Task<Trie> Init()
         {
-            var jsonString = await File.ReadAllTextAsync("./Files/sv_lsm_data.json");
+            var jsonString = await File.ReadAllTextAsync(settings.FilePath);
             var dataModel = JsonSerializer.Deserialize<DataModel>(jsonString, new JsonSerializerOptions
             {
                 PropertyNameCaseInsensitive = true

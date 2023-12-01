@@ -1,3 +1,5 @@
+using Microsoft.Extensions.Configuration;
+using TextSearchDemo.Configuration;
 using TextSearchDemo.Interfaces;
 using TextSearchDemo.Services;
 
@@ -11,6 +13,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddMemoryCache();
+builder.Services.Configure<Settings>(builder.Configuration.GetSection(nameof(Settings)));
 
 var app = builder.Build();
 
