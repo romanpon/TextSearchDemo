@@ -1,8 +1,0 @@
-version: '3.4'
-
-services:
-  textsearchdemo:
-    image: ${DOCKER_REGISTRY-}textsearchdemo
-    build:
-      context: .
-      dockerfile: TextSearchDemo/Dockerfile

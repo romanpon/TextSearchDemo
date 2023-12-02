@@ -3,7 +3,8 @@ using TextSearchDemo.Interfaces;
 
 namespace TextSearchDemo.Controllers
 {
-    [Route("search")]
+    [ApiController]
+    [Route("[controller]")]
     public class SearchController : ControllerBase
     {
         private readonly ISearchService searchService;
@@ -14,9 +15,9 @@ namespace TextSearchDemo.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Search(string text, CancellationToken cancellationToken)
+        public async Task<IActionResult> Search([FromQuery(Name = "text")] string text)
         {
-            var result = await searchService.Search(text, cancellationToken);
+            var result = await searchService.Search(text, CancellationToken.None);
             return Ok(result);
         }
     }

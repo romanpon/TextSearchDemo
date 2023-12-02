@@ -1,0 +1,10 @@
+<h1 id="tableLabel">Search</h1>
+
+<div class="wrap">
+  <div class="search">
+    <input type="text" class="searchTerm" placeholder="What are you looking for?" #filter>
+    <button class="searchButton" type="submit" (click)="search(filter.value)">
+      <i class="fa fa-search"></i>
+    </button>
+  </div>
+</div>
