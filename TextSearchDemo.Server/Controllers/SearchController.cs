@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TextSearchDemo.Interfaces;
+using TextSearchDemo.Models;
+using TextSearchDemo.Trie.Interfaces;
 
 namespace TextSearchDemo.Controllers
 {
@@ -7,17 +8,18 @@ namespace TextSearchDemo.Controllers
     [Route("[controller]")]
     public class SearchController : ControllerBase
     {
-        private readonly ISearchService searchService;
+        private readonly ITrieService _trieService;
 
-        public SearchController(ISearchService searchService)
+        public SearchController(ITrieService trieService)
         {
-            this.searchService = searchService;
+            _trieService = trieService;
         }
 
         [HttpGet]
-        public async Task<IActionResult> Search([FromQuery(Name = "text")] string text)
+        [ProducesResponseType(typeof(IEnumerable<Child>), 200)]
+        public async Task<IActionResult> Search([FromQuery] string text)
         {
-            var result = await searchService.Search(text, CancellationToken.None);
+            var result = await _trieService.SearchAsync(text, CancellationToken.None);
             return Ok(result);
         }
     }

@@ -1,6 +1,8 @@
-﻿namespace TextSearchDemo.Models
+﻿using TextSearchDemo.Trie.Interfaces;
+
+namespace TextSearchDemo.Models
 {
-    public class Building
+    public class Building : IEntity
     {
         public Guid Id { get; set; }
         public string ShortCut { get; set; }

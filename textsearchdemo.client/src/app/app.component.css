@@ -6,67 +6,19 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-.search {
-  width: 100%;
-  position: relative;
-  display: flex;
+.result-list {
+  padding: 0;
+  text-align: left;
+  margin-bottom: 8px; 
 }
 
-.searchTerm {
-  width: 100%;
-  border: 3px solid #00B4CC;
-  border-right: none;
-  padding: 5px;
-  height: 20px;
-  border-radius: 5px 0 0 5px;
-  outline: none;
-  color: #9DBFAF;
+.result-list li {
+  list-style: none;
 }
 
-  .searchTerm:focus {
-    color: #00B4CC;
-  }
-
-.searchButton {
-  width: 40px;
-  height: 36px;
-  border: 1px solid #00B4CC;
-  background: #00B4CC;
-  text-align: center;
-  color: #fff;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-/*Resize the wrap to see the search bar change!*/
-.wrap {
-  width: 30%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-:host {
-    max-width: 1280px;
-    padding: 2rem;
-    text-align: center;
-}
-
-tr:nth-child(even) {
-    background: #F2F2F2;
-}
-
-tr:nth-child(odd) {
-    background: #FFF;
-}
-
-th, td {
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-
-table {
-    margin: 0 auto;
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center
 }

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -21,6 +21,7 @@
     <ProjectReference Include="..\textsearchdemo.client\textsearchdemo.client.esproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
+    <ProjectReference Include="..\TextSearchDemo.Trie\TextSearchDemo.Trie.csproj" />
   </ItemGroup>
 
 </Project>

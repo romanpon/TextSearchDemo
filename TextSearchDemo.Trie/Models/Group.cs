@@ -1,6 +1,8 @@
-﻿namespace TextSearchDemo.Models
+﻿using TextSearchDemo.Trie.Interfaces;
+
+namespace TextSearchDemo.Models
 {
-    public class Group
+    public class Group : IEntity
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

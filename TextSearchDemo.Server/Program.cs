@@ -1,11 +1,12 @@
 using TextSearchDemo.Configuration;
-using TextSearchDemo.Interfaces;
-using TextSearchDemo.Services;
+using TextSearchDemo.Trie.Interfaces;
+using TextSearchDemo.Trie.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddScoped<ISearchService, SearchService>();
+builder.Services.AddScoped<IReadService, ReadService>();
+builder.Services.AddScoped<ITrieService, TrieService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

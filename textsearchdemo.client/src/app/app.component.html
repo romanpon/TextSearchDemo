@@ -1,10 +1,25 @@
-<h1 id="tableLabel">Search</h1>
 
-<div class="wrap">
-  <div class="search">
-    <input type="text" class="searchTerm" placeholder="What are you looking for?" #filter>
-    <button class="searchButton" type="submit" (click)="search(filter.value)">
+
+<div class="container">
+  <h2>Entities List:</h2>
+
+  <!-- Add a search input field and button -->
+  <div>
+    <input type="text" placeholder="What are you looking for?" #filter>
+    <button type="submit" (click)="search(filter.value)">
       <i class="fa fa-search"></i>
     </button>
+  </div>
+
+  <div class="result-list" *ngFor="let subItem of searchResult">
+    <b>Entity Type</b>: {{subItem.entityType}}
+    <div style="white-space: pre-line;" *ngFor="let item of subItem.entity | keyvalue">
+      <ul>
+        <li>
+          <b>{{item.key}}</b>: {{item.value}}
+        </li>
+      </ul>
+    </div>
+    <hr>
   </div>
 </div>
