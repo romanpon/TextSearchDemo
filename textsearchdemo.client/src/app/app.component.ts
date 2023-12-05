@@ -5,7 +5,7 @@ interface Result {
   entityType: string,
   value: string,
   propertyName: string,
-  weith: number,
+  weight: number,
   entity: [key: string]
 }
 
