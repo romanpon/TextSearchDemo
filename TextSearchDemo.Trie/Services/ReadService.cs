@@ -8,7 +8,7 @@ namespace TextSearchDemo.Trie.Services
 {
     public class ReadService : IReadService
     {
-        public readonly Settings settings;
+        private readonly Settings settings;
 
         public ReadService(IOptions<Settings> settings)
         {
