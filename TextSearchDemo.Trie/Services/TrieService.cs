@@ -24,6 +24,10 @@ namespace TextSearchDemo.Trie.Services
                 cancellationToken.ThrowIfCancellationRequested();
 
                 var c = searchText[i];
+                if (!char.IsLetterOrDigit(c))
+                {
+                    continue;
+                }
                 if (i == searchText.Length - 1)
                 {
                     result = node[c].Children.Values.ToList();
@@ -114,9 +118,11 @@ namespace TextSearchDemo.Trie.Services
                     if (weight != -1)
                     {
                         var suffixes = GetSuffixes(propertyValue.ToString());
+                        var isSuffix = false;
                         foreach (var suffix in suffixes)
                         {
-                            Insert(trie, suffix, propertyName, weight, baseItem);
+                            Insert(trie, suffix, propertyName, weight, baseItem, isSuffix);
+                            isSuffix = true;
                         }
                     }
                 }
@@ -136,14 +142,14 @@ namespace TextSearchDemo.Trie.Services
             return suffixes;
         }
 
-        private void Insert(TrieModel trie, string value, string propertyName, int weight, object entity) 
+        private void Insert(TrieModel trie, string value, string propertyName, int weight, object entity, bool isSuffix) 
         {
             value = value.ToLowerInvariant();
             var child = new Child(value, propertyName, weight, fullWord: false, entity);
             var node = trie.Node;
             for (int i = 0; i < value.Length; i++)
             {
-                if (i == value.Length - 1)
+                if (i == value.Length - 1 && !isSuffix)
                 {
                     child = new Child(value, propertyName, weight * 10, fullWord: true, entity);
                 }
