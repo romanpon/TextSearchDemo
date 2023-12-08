@@ -132,6 +132,11 @@ namespace TextSearchDemo.Trie.Services
                 }
 
                 var c = value[i];
+                if (!char.IsLetterOrDigit(c))
+                {
+                    continue;
+                }
+
                 var childEntity = (IEntity)child.entity;
                 if (!node.ContainsKey(c))
                 {
