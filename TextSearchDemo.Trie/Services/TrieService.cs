@@ -113,10 +113,27 @@ namespace TextSearchDemo.Trie.Services
                     var weight = Weights.GetWeight($"{className}.{propertyName}");
                     if (weight != -1)
                     {
-                        Insert(trie, propertyValue.ToString(), propertyName, weight, baseItem);
+                        var suffixes = GetSuffixes(propertyValue.ToString());
+                        foreach (var suffix in suffixes)
+                        {
+                            Insert(trie, suffix, propertyName, weight, baseItem);
+                        }
                     }
                 }
             }
+        }
+
+        private string[] GetSuffixes(string text)
+        {
+            var n = text.Length;
+            var suffixes = new string[n];
+
+            for (var i = 0; i < n; i++)
+            {
+                suffixes[i] = text.Substring(i);
+            }
+
+            return suffixes;
         }
 
         private void Insert(TrieModel trie, string value, string propertyName, int weight, object entity) 
