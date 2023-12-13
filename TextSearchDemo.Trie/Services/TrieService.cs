@@ -28,15 +28,16 @@ namespace TextSearchDemo.Trie.Services
                 {
                     continue;
                 }
-                if (i == searchText.Length - 1)
-                {
-                    result = node[c].Children.Values.ToList();
-                    break;
-                }
 
                 if (!node.ContainsKey(c))
                 {
                     return new List<Child>();
+                }
+
+                if (i == searchText.Length - 1)
+                {
+                    result = node[c].Children.Values.ToList();
+                    break;
                 }
 
                 node = node[c].Node;
