@@ -3,8 +3,9 @@ const PROXY_CONFIG = [
     context: [
       "/search"
     ],
-    target: "https://localhost:5000",
-    secure: false
+    target: "http://localhost:5000",
+    secure: false,
+    changeOrigin: true
   }
 ]
 

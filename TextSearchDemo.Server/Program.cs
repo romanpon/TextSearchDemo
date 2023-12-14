@@ -14,8 +14,20 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddMemoryCache();
 builder.Services.Configure<Settings>(builder.Configuration.GetSection(nameof(Settings)));
+builder.Services
+    .AddCors(x => x.AddPolicy("Any", builder => 
+        {
+            builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .SetIsOriginAllowed((host) => true)
+                .AllowAnyHeader()
+                .Build();
+        }));
 
 var app = builder.Build();
+
+app.UseCors("Any");
 
 app.UseDefaultFiles();
 app.UseStaticFiles();

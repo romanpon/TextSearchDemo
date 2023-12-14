@@ -9,6 +9,8 @@ Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "textsearchdemo.client", "te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextSearchDemo.Trie", "TextSearchDemo.Trie\TextSearchDemo.Trie.csproj", "{9642CEB2-73BC-4952-8118-FC8C441F7ECC}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{7E89FC4D-818C-451F-847B-1CB3024F2FBD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{9642CEB2-73BC-4952-8118-FC8C441F7ECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9642CEB2-73BC-4952-8118-FC8C441F7ECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9642CEB2-73BC-4952-8118-FC8C441F7ECC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E89FC4D-818C-451F-847B-1CB3024F2FBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E89FC4D-818C-451F-847B-1CB3024F2FBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E89FC4D-818C-451F-847B-1CB3024F2FBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E89FC4D-818C-451F-847B-1CB3024F2FBD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

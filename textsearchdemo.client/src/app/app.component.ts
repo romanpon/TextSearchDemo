@@ -26,7 +26,7 @@ export class AppComponent {
       return;
     }
 
-    this.http.get<Result[]>('/search?text='+text).subscribe(
+    this.http.get<Result[]>('http://localhost:5000/search?text='+text).subscribe(
       (result) => {
         this.searchResult = result;
       },
